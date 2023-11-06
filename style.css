@@ -1,0 +1,157 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;    
+}
+.control-buttons{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(255, 0,0, 0.6);
+}
+.control-buttons span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f44336;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.info-contianer{
+    width: 1080px;
+    margin: 20px auto 0 ;
+    background-color: #f6f6f6;
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    border: 2px solid #2196f6;
+}
+.info-contianer .name{
+    float: left;
+    width: 50%;
+}
+.info-contianer .tries{
+    float: right;
+    width: 50%;
+    text-align: right;
+}
+.memory-game-blocks{
+    display: flex;
+    width: 1100px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+.memory-game-blocks .game-block{
+    height: 200px;
+    transition: transform .5s;
+    transform-style: preserve-3d ;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 200px;
+    margin: 0 10px 20px;
+}
+.memory-game-blocks .game-block.has-match,
+.memory-game-blocks .game-block.is-flipped{
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+.memory-game-blocks .game-block .front{
+    background-color: #333;
+    line-height: 200px;
+}
+.memory-game-blocks .game-block .front::before{
+    content: "?";
+    color: #fff;
+    font-size: 140px;
+    font-weight: bold;
+}
+.memory-game-blocks .game-block .back{
+    background-color: #607d8b;
+    transform: rotateY(180deg);
+}
+.memory-game-blocks.no-clicking{
+    pointer-events: none;    
+}
+.memory-game-blocks .game-block img{
+    width: 140px;
+    height: 140px;
+    margin-top: 30px;
+}
+.memory-game-blocks .game-block .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #2196f6;
+}
+///////////////////////////////////////
+  /* Overlay to dim the background */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  /* Modal dialog box */
+  .modal {
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+    z-index: 2; 
+    height: 214px; 
+    width: 561px;
+  }
+
+  /* Input field */
+  .modal input[type="text"] {
+    display: block;
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 34px;
+    background-color: #333;
+    color: #f44336;
+    height: 85px;
+    width: 519px;
+  }
+
+  /* Buttons */
+  .modal button {
+    display: inline-block; 
+    background-color: #007bff; 
+    color: #fff; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 8px 12px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    width: 255px; 
+    height: 76px;
+  }
+
+  .modal button.cancel {
+    background-color: #6c757d;
+    margin-left: 10px;
+  }
+
